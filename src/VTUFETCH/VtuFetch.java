@@ -16,7 +16,8 @@ public class VtuFetch {
          usn = in.nextLine();
          
          Document doc = Jsoup.connect("http://www.fastvturesults.com/check_new_results/"+usn).
-        		userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36").get();
+        		userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36")
+        		.get();
         for (Element table : doc.select("table[id=scell]")) {
             for (Element row : table.select("tr:gt(0)")) {
                Elements tds = row.select("td:not([rowspan])");
